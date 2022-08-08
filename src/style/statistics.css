@@ -11,6 +11,10 @@
     box-shadow: #e8ffe0 0 0 3px;
 }
 
+.timer.invisible{
+    display: none;
+}
+
 .main__stat,
 .speed__wrapper,
 .accuracy__wrapper {

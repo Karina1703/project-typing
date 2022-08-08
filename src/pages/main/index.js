@@ -10,7 +10,6 @@ export default class MainPage {
         const text = await this.loadText()
         this.lettersToEnter = text.split('')
         this.element = this.mainText
-        this.addTimer()
         this.initEventListeners()
         return this.element
     }
@@ -23,11 +22,25 @@ export default class MainPage {
 
     initEventListeners() {
         this.element.addEventListener('input', this.onInput)
+        this.element.addEventListener('keyup', this.onKeyUp)
+    }
+
+    onInput = (e) => {
+        this.firstEnteredValue = e.target.value
+        this.classToggler(e.target.value)
+        this.accuracySwitcher()
+        e.target.value = ""
+    }
+    
+    onKeyUp = () =>{
+        this.addTimer()
+        this.element.removeEventListener('keyup', this.onKeyUp)
     }
 
     addTimer() {
         this.typingDurationCountdown = this.typingDuration
         const timer = this.element.querySelector('.timer')
+        timer.classList.remove('invisible')
 
         const timerElementId = setInterval(() => {
             this.typingDurationCountdown--;
@@ -45,17 +58,12 @@ export default class MainPage {
         }, this.typingDuration * 1000)
     }
 
-    onInput = (e) => {
-        this.classToggler(e.target.value)
-        this.accuracySwitcher()
-        e.target.value = ""
-    }
 
     speedSwitcher() {
         const speedValue = document.getElementById('speed__value')
         this.elapsedTimeInMinutes = (this.typingDuration - this.typingDurationCountdown) / 60
         this.speed = Math.round(this.correctCount / this.elapsedTimeInMinutes)
-        speedValue.innerHTML =  this.speed ? this.speed : 0
+        speedValue.innerHTML =  isFinite(this.speed) ? this.speed : 0
     }
 
     accuracySwitcher() {
@@ -103,7 +111,7 @@ export default class MainPage {
         <div class="value__wrapper"><span id="accuracy__value">0</span>%</div>
         <div class="accuracy__text">Точность</div>
     </div>
-    <div class="timer timer__value">${this.typingDuration}</div>
+    <div class="timer timer__value invisible">${this.typingDuration}</div>
 </div></div>
     `)
     }
