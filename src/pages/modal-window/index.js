@@ -10,8 +10,11 @@ export default class Modal {
     }
 
     get modalWindow() {
-        return `<div class = "wrapper"><div class="modal">
-        <h1 class="modal__header">Добро пожаловать в тренажер слепой печати</h1>
+        return `<div class ="wrapper"><div class="modal">
+        <div class="modal__header">
+            <h1 class ='text-desktop'>Добро пожаловать в тренажер слепой печати</h1>
+            <h1 class ='text-mobile'>Прости, тренажер слепой печати не работает на мобильном. Пожалуйста, используй компьютер</h1>
+        </div>
         <button id="startButton" class="modal__button">Начать!</button>
         </div></div>`
     }

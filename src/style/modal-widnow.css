@@ -1,37 +1,78 @@
+.wrapper {
+    width: 100%;
+    padding: 60px 20px;
+}
+
 
 .modal {
     background-color: #fff;
-    width: 780px;
-    height: 400px;
-    margin: 50px auto;
-    border-radius: 10px;
+    border-radius: 15px;
+    height: 300px;
     box-shadow: #b0adad 0 0 5px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif
+}
+
+@media (min-width: 1200px) {
+    .modal {
+        width: 780px;
+        height: 400px;
+        margin: 50px auto;
+    }
+}
+
+.text-desktop {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .text-desktop {
+        display: block;
+    }
+
+    .text-mobile {
+        display: none;
+    }
 }
 
 .modal__header {
-    display: inline-block;
-    margin: 90px;
+    padding: 30px;
     color: #5c5c5c;
-    font-size: 36px;
-    line-height: 40px;
-    font-weight: 400;
-    padding-bottom: 20px;
-    width: 600px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.375;
     text-align: center;
 }
 
-.modal__button {
-    font-size: 20px;
-    display: block;
-    width: 180px;
-    height: 44px;
-    margin: 0 auto;
-    border-radius: 10px;
-    background-color: #323437;
-    color: white;
-}
-.modal__button:hover{
-    background-color: #525558;
+@media (min-width: 1200px) {
+    .modal__header {
+        padding: 60px;
+        margin: 0 auto;
+        color: #5c5c5c;
+        font-size: 36px;
+        line-height: 50px;
+        font-weight: 400;
+        width: 600px;
+        text-align: center;
+    }
 }
 
+.modal__button {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .modal__button {
+        display: block;
+        font-size: 20px;
+        width: 180px;
+        height: 44px;
+        margin: 0 auto;
+        border-radius: 20px;
+        background-color: #323437;
+        color: white;
+    }
+
+    .modal__button:hover {
+        background-color: #525558;
+    }
+}
