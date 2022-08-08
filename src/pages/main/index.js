@@ -10,6 +10,7 @@ export default class MainPage {
         const text = await this.loadText()
         this.lettersToEnter = text.split('')
         this.element = this.mainText
+        this.element.querySelector('.letter').classList.add('indicator')
         this.initEventListeners()
         return this.element
     }
@@ -80,9 +81,9 @@ export default class MainPage {
             this.index++
             this.correctCount++
 
-            if (this.element.querySelector('.next')) this.element.querySelector('.next').classList.remove('next')
+            if (this.element.querySelector('.indicator')) this.element.querySelector('.indicator').classList.remove('indicator')
 
-            letterListInHtml[this.index].classList.add('next')
+            letterListInHtml[this.index].classList.add('indicator')
             letterListInHtml[this.index - 1].classList.add('white')
             letterListInHtml[this.index - 1].classList.remove('red')
 
