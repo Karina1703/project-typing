@@ -7,7 +7,7 @@
 
 
 
-## To start project
+## To start project-typing
 1. Необходимо скачать репозиторий к себе
 2. Открыть папку project.
 3. Открыть файл index.html и запустить его в браузере
